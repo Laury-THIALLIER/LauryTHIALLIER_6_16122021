@@ -1,0 +1,42 @@
+function photographerProfileFactory(data) {
+  const { name, portrait, city, country, tagline, price, id } = data;
+
+  const picture = `assets/photographers/${portrait}`;
+
+  function getUserCardDOM() {
+    // const article = document.createElement("article");
+
+    infos = document.querySelector(".photographer_header");
+    div = document.createElement("div");
+
+    const h2 = document.createElement("h2");
+    h2.textContent = name;
+
+    const pLocation = document.createElement("p");
+    pLocation.textContent = city + ", " + country;
+
+    const pTagline = document.createElement("p");
+    pTagline.textContent = tagline;
+
+    const button = document.createElement("button");
+    button.textContent = "Contactez-moi";
+    button.setAttribute("class", "contact_button");
+    button.setAttribute("onclick", "displayModal()");
+
+    const img = document.createElement("img");
+    img.setAttribute("src", picture);
+
+    const pPrice = document.createElement("p");
+    pPrice.textContent = price + "€/jour";
+
+    infos.appendChild(div);
+    div.appendChild(h2);
+    div.appendChild(pLocation);
+    div.appendChild(pTagline);
+    infos.appendChild(button);
+    infos.appendChild(img);
+    return infos;
+  }
+
+  return { name, picture, city, country, tagline, price, getUserCardDOM };
+}

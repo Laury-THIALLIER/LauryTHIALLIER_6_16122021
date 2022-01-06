@@ -1,6 +1,6 @@
 /* Photographer header */
 
-.photographer_header {
+.photographer_header .infos {
   background-color: #fafafa;
   height: 300px;
   margin: 0 100px;
@@ -34,6 +34,48 @@
   width: 250px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* Portfolio */
+
+.photographer_portfolio {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 450px);
+  grid-row-gap: 20px;
+  justify-content: space-between;
+  margin: 80px 100px;
+}
+
+.photographer_portfolio .media {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.photographer_portfolio img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.photographer_portfolio .details {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901c1c;
+}
+
+.photographer_portfolio .details h2 {
+  font-weight: 400;
+}
+
+.photographer_portfolio .details p {
+  font-weight: 700;
+  font-size: 20px;
 }
 
 /* Contact modal */

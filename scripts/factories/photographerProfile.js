@@ -1,12 +1,11 @@
 function photographerProfileFactory(data) {
-  const { name, portrait, city, country, tagline, price, id } = data;
+  const { name, portrait, city, country, tagline, price } = data;
 
   const picture = `assets/photographers/${portrait}`;
 
-  function getUserCardDOM() {
-    // const article = document.createElement("article");
-
-    infos = document.querySelector(".photographer_header");
+  function getProfileCardDOM() {
+    infos = document.createElement("div");
+    infos.setAttribute("class", "infos");
     div = document.createElement("div");
 
     const h2 = document.createElement("h2");
@@ -38,5 +37,5 @@ function photographerProfileFactory(data) {
     return infos;
   }
 
-  return { name, picture, city, country, tagline, price, getUserCardDOM };
+  return { name, picture, city, country, tagline, price, getProfileCardDOM };
 }

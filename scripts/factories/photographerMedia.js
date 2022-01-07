@@ -1,7 +1,5 @@
 function photographerMediaFactory(data) {
-  const { photographerId, title, image, likes } = data;
-
-  const picture = `assets/media/${image}`;
+  const { photographerId, title, image, video, likes } = data;
 
   function getMediaCardDOM() {
     media = document.createElement("div");
@@ -10,21 +8,35 @@ function photographerMediaFactory(data) {
     details = document.createElement("div");
     details.setAttribute("class", "details");
 
-    const img = document.createElement("img");
-    img.setAttribute("src", picture);
+    if (image) {
+      const picture = `assets/media/${image}`;
+      const img = document.createElement("img");
+      img.setAttribute("src", picture);
+      media.appendChild(img);
 
-    const h2 = document.createElement("h2");
-    h2.textContent = title;
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      details.appendChild(h2);
+    }
+
+    if (video) {
+      const videotape = `assets/media/${video}`;
+      const photographerVideo = document.createElement("video");
+      photographerVideo.setAttribute("src", videotape);
+      media.appendChild(photographerVideo);
+
+      const h2 = document.createElement("h2");
+      h2.textContent = title;
+      details.appendChild(h2);
+    }
 
     const pLikes = document.createElement("p");
     pLikes.innerHTML = likes + " <i class='fas fa-heart'></i>";
 
-    media.appendChild(img);
     media.appendChild(details);
-    details.appendChild(h2);
     details.appendChild(pLikes);
     return media;
   }
 
-  return { photographerId, title, image, likes, getMediaCardDOM };
+  return { photographerId, title, image, video, likes, getMediaCardDOM };
 }

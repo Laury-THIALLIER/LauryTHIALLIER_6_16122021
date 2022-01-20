@@ -1,5 +1,5 @@
 function photographerMediaFactory(data) {
-  const { photographerId, title, image, video, likes } = data;
+  const { photographerId, id, title, image, video, likes } = data;
 
   function getMediaCardDOM() {
     media = document.createElement("div");
@@ -12,6 +12,8 @@ function photographerMediaFactory(data) {
       const picture = `assets/media/${image}`;
       const img = document.createElement("img");
       img.setAttribute("src", picture);
+      img.dataset.id = id;
+      img.setAttribute("class", "media-img");
       media.appendChild(img);
 
       const h2 = document.createElement("h2");
@@ -24,6 +26,7 @@ function photographerMediaFactory(data) {
       const photographerVideo = document.createElement("video");
       photographerVideo.setAttribute("src", videotape);
       media.appendChild(photographerVideo);
+      photographerVideo.dataset.id = id;
 
       const h2 = document.createElement("h2");
       h2.textContent = title;
@@ -38,5 +41,5 @@ function photographerMediaFactory(data) {
     return media;
   }
 
-  return { photographerId, title, image, video, likes, getMediaCardDOM };
+  return { photographerId, id, title, image, video, likes, getMediaCardDOM };
 }

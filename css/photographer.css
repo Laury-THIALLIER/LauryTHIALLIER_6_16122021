@@ -60,6 +60,7 @@
   height: 400px;
   object-fit: cover;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .photographer_portfolio .details {
@@ -77,6 +78,90 @@
 .photographer_portfolio .details p {
   font-weight: 700;
   font-size: 20px;
+}
+
+/* Lightbox */
+
+.lightbox {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: white;
+}
+
+.lightbox .slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 850px;
+  width: 995px;
+  position: relative;
+}
+
+.lightbox .slider .fa-chevron-left {
+  font-size: 50px;
+  color: #901c1c;
+  cursor: pointer;
+}
+
+.lightbox .slider img {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0 40px;
+  border-radius: 5px;
+}
+
+.lightbox .slider video {
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  margin: 0 40px;
+  border-radius: 5px;
+}
+
+.lightboxMedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.lightbox .slider .fa-chevron-right {
+  font-size: 50px;
+  color: #901c1c;
+  cursor: pointer;
+}
+
+.lightbox .slider .fa-times {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 50px;
+  color: #901c1c;
+  cursor: pointer;
+}
+
+.lightbox .div-title {
+  display: flex;
+  justify-content: center;
+  text-align: start;
+  width: 100%;
+}
+
+.lightbox .div-title h2 {
+  color: #901c1c;
+  margin: 0;
+  margin-top: 30px;
+  /* margin-left: 530px; */
+  width: 855px;
 }
 
 /* Contact modal */

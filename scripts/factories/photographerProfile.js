@@ -34,6 +34,12 @@ function photographerProfileFactory(data) {
     div.appendChild(pTagline);
     infos.appendChild(button);
     infos.appendChild(img);
+
+    // Contact
+
+    const contact = document.getElementById("contact_me");
+    contact.innerHTML = "Contactez-moi<br>" + name;
+
     return infos;
   }
 

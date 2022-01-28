@@ -58,7 +58,7 @@ async function displayPortfolio(photographers) {
   portfolio.forEach((media) => {
     const photographerMedia = photographerMediaFactory(media);
     const mediaCardDOM = photographerMedia.getMediaCardDOM();
-    mediaCardDOM.addEventListener("click", () =>
+    mediaCardDOM.children[0].addEventListener("click", () =>
       clickLightbox(mediaCardDOM.children[0])
     );
     photographersPortfolio.appendChild(mediaCardDOM);
@@ -193,6 +193,43 @@ async function displayPortfolio(photographers) {
 
   document.getElementById("close").addEventListener("click", () => {
     closeLightbox();
+  });
+
+  /* Likes */
+
+  const hearts = document.querySelectorAll(".fa-heart");
+
+  let totalLikes = 0;
+  portfolio.map((element) => {
+    totalLikes += element.likes;
+    return totalLikes;
+  });
+
+  const totalLikesBar = document.querySelector(".totalLikes");
+  totalLikesBar.textContent = totalLikes;
+
+  const LikeFunction = (element) => {
+    const numberLike = element.previousSibling;
+    const result = numberLike.classList.toggle("hearts");
+    if (result) {
+      let number = parseInt(numberLike.textContent);
+      numberLike.textContent = number += 1;
+      totalLikesBar.textContent = totalLikes += 1;
+      element.style.color = "#db8876";
+      totalLikes + 1;
+    } else {
+      let number = parseInt(numberLike.textContent);
+      numberLike.textContent = number -= 1;
+      totalLikesBar.textContent = totalLikes -= 1;
+      element.style.color = "#901c1c";
+      totalLikes - 1;
+    }
+  };
+
+  hearts.forEach((element) => {
+    element.addEventListener("click", () => {
+      LikeFunction(element);
+    });
   });
 }
 

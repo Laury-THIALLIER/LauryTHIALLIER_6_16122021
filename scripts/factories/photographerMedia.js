@@ -33,11 +33,19 @@ function photographerMediaFactory(data) {
       details.appendChild(h2);
     }
 
+    const p = document.createElement("p");
+    p.setAttribute("class", "likes");
+
     const pLikes = document.createElement("p");
-    pLikes.innerHTML = likes + " <i class='fas fa-heart'></i>";
+    pLikes.innerHTML = likes;
+
+    const pHeart = document.createElement("i");
+    pHeart.setAttribute("class", "fas fa-heart");
 
     media.appendChild(details);
-    details.appendChild(pLikes);
+    details.appendChild(p);
+    p.appendChild(pLikes);
+    p.appendChild(pHeart);
     return media;
   }
 

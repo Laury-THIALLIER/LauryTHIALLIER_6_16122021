@@ -80,6 +80,23 @@
   font-size: 20px;
 }
 
+.photographer_portfolio .details p.likes {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 80px;
+  margin: 0;
+}
+
+.photographer_portfolio .details .fa-heart {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.liked {
+  color: #db8876;
+}
+
 /* Lightbox */
 
 .lightbox {
@@ -255,4 +272,29 @@ form textarea {
 
 form button {
   font-weight: 400 !important;
+}
+
+/* Total likes */
+
+.totalLikes-bar {
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  background: #db8876;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  font-size: 24px;
+  border-radius: 5px 5px 0 0;
+  padding: 0 30px;
+}
+
+.totalLikes-bar .likes-bar {
+  display: flex;
+  align-items: center;
+}
+
+.totalLikes-bar .likes-bar .totalLikes {
+  margin-right: 5px;
 }

@@ -25,8 +25,10 @@ function photographerProfileFactory(data) {
     const img = document.createElement("img");
     img.setAttribute("src", picture);
 
-    const pPrice = document.createElement("p");
-    pPrice.textContent = price + "€/jour";
+    totalLikesBar = document.querySelector(".totalLikes-bar");
+    const pPrice = document.querySelector(".price");
+    pPrice.textContent = price + "€ / jour";
+    totalLikesBar.appendChild(pPrice);
 
     infos.appendChild(div);
     div.appendChild(h2);

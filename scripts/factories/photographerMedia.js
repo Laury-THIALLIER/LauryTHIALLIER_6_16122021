@@ -4,6 +4,7 @@ function photographerMediaFactory(data) {
   function getMediaCardDOM() {
     media = document.createElement("div");
     media.setAttribute("class", "media");
+    media.setAttribute("id", id);
 
     details = document.createElement("div");
     details.setAttribute("class", "details");

@@ -231,6 +231,115 @@ async function displayPortfolio(photographers) {
       LikeFunction(element);
     });
   });
+
+  /* Tri */
+
+  const selected = document.getElementById("selected");
+  const popularity = document.getElementById("popularity");
+  const date = document.getElementById("date");
+  const title = document.getElementById("title");
+  const listUl = document.querySelector("#list-ul");
+  const list = document.querySelector("#list");
+  const arrow = document.querySelector("#list-arrow");
+
+  function toggleNavbar() {
+    if (
+      !listUl.getAttribute("style") ||
+      listUl.getAttribute("style") === "display: none;"
+    ) {
+      listUl.style.display = "block";
+      arrow.classList.add("arrow-move");
+    } else {
+      listUl.style.display = "none";
+      list.focus();
+      arrow.classList.remove("arrow-move");
+    }
+  }
+
+  list.addEventListener("click", (e) => {
+    e.preventDefault();
+    toggleNavbar();
+  });
+
+  const selectedChoiceHidden = () => {
+    if (selected.innerHTML == popularity.innerHTML) {
+      popularity.classList.remove("list-li");
+      popularity.innerHTML = "";
+    } else {
+      popularity.innerHTML = "Popularité";
+      popularity.classList.add("list-li");
+    }
+    if (selected.innerHTML === date.innerHTML) {
+      date.classList.remove("list-li");
+      date.innerHTML = "";
+    } else {
+      date.innerHTML = "Date";
+      date.classList.add("list-li");
+    }
+    if (selected.innerHTML === title.innerHTML) {
+      title.classList.remove("list-li");
+      title.innerHTML = "";
+    } else {
+      title.innerHTML = "Titre";
+      title.classList.add("list-li");
+    }
+  };
+
+  function sortByLike() {
+    selected.innerHTML = "Popularité";
+    selectedChoiceHidden();
+    portfolio.sort((a, b) => b.likes - a.likes);
+    portfolio.forEach((media) => {
+      const mediaCard = document.getElementById(media.id);
+      photographersPortfolio.appendChild(mediaCard);
+    });
+  }
+
+  popularity.addEventListener("click", () => {
+    sortByLike();
+  });
+
+  function sortByDate() {
+    selected.innerHTML = "Date";
+    selectedChoiceHidden();
+    portfolio.sort((a, b) => new Date(b.date) - new Date(a.date));
+    portfolio.forEach((media) => {
+      const mediaCard = document.getElementById(media.id);
+      photographersPortfolio.appendChild(mediaCard);
+    });
+  }
+
+  date.addEventListener("click", () => {
+    sortByDate();
+  });
+
+  function sortByTitle() {
+    selected.innerHTML = "Titre";
+
+    selectedChoiceHidden();
+    function compare(a, b) {
+      if (a.title < b.title) {
+        return -1;
+      }
+      if (a.title > b.title) {
+        return 1;
+      }
+      return 0;
+    }
+    portfolio.sort(compare);
+
+    portfolio.forEach((media) => {
+      const mediaCard = document.getElementById(media.id);
+      photographersPortfolio.appendChild(mediaCard);
+    });
+  }
+
+  title.addEventListener("click", () => {
+    sortByTitle();
+  });
+
+  sortByLike();
+  selectedChoiceHidden();
 }
 
 async function init() {

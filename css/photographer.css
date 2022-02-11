@@ -36,6 +36,113 @@
   object-fit: cover;
 }
 
+/* Tri */
+
+/* .sort {
+  margin-top: 80px;
+  margin-left: 100px;
+}
+
+.sort label {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.sort select {
+  background-color: #901c1c;
+  border: 0;
+  border-radius: 5px;
+  color: white;
+  width: 170px;
+  height: 70px;
+  padding: 11px;
+  font-weight: 700;
+  appearance: none;
+  font-size: 16px;
+}
+
+.sort option {
+  font-size: 16px;
+  font-weight: 700;
+  width: 170px;
+  height: 70px;
+} */
+
+.sort-button {
+  margin-top: 80px;
+  margin-left: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.sort-button label {
+  font-size: 1.125em;
+  font-weight: 700;
+  margin-right: 15px;
+}
+.list {
+  position: relative;
+  cursor: pointer;
+  z-index: 2;
+  width: 170px;
+  height: 70px;
+  border: none;
+}
+.list-button {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #901c1c;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 1.125em;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 18px 0 20px;
+}
+
+.arrow-move {
+  transform: rotate(180deg);
+}
+
+.list-ul {
+  position: absolute;
+  width: 208px;
+  display: none;
+  top: 100%;
+  left: 0;
+  border: none;
+  font-size: 1.125em;
+  font-weight: 700;
+  color: white;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background-color: #901c1c;
+  list-style-type: none;
+  padding: 0;
+  margin-top: -3px;
+}
+
+.list-li {
+  padding: 20px 0 20px 20px;
+  position: relative;
+  text-align: start;
+}
+
+.list-li::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  width: 180px;
+  border: white solid 1px;
+}
+
 /* Portfolio */
 
 .photographer_portfolio {
@@ -111,6 +218,7 @@
   top: 0;
   left: 0;
   background: white;
+  z-index: 5;
 }
 
 .lightbox .slider {

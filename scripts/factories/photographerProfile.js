@@ -8,8 +8,12 @@ function photographerProfileFactory(data) {
     infos.setAttribute("class", "infos");
     div = document.createElement("div");
 
-    const h2 = document.createElement("h2");
-    h2.textContent = name;
+    const h1 = document.createElement("h1");
+    h1.textContent = name;
+    h1.setAttribute("tabindex", "0");
+
+    const description = document.createElement("div");
+    description.setAttribute("tabindex", "0");
 
     const pLocation = document.createElement("p");
     pLocation.textContent = city + ", " + country;
@@ -24,6 +28,8 @@ function photographerProfileFactory(data) {
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);
+    img.setAttribute("alt", name);
+    img.setAttribute("tabindex", "0");
 
     totalLikesBar = document.querySelector(".totalLikes-bar");
     const pPrice = document.querySelector(".price");
@@ -31,9 +37,10 @@ function photographerProfileFactory(data) {
     totalLikesBar.appendChild(pPrice);
 
     infos.appendChild(div);
-    div.appendChild(h2);
-    div.appendChild(pLocation);
-    div.appendChild(pTagline);
+    div.appendChild(h1);
+    div.appendChild(description);
+    description.appendChild(pLocation);
+    description.appendChild(pTagline);
     infos.appendChild(button);
     infos.appendChild(img);
 

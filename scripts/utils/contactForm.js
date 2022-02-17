@@ -1,12 +1,21 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "block";
+  modal.setAttribute("aria-hidden", "false");
+  modal.focus();
 }
 
 function closeModal() {
   const modal = document.getElementById("contact_modal");
   modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
 }
+
+document.getElementById("contact_close").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    closeModal();
+  }
+});
 
 const inputs = document.querySelectorAll(".contact_input");
 const contact_modal = document.getElementById("contact_modal");

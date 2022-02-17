@@ -16,9 +16,12 @@ function photographerMediaFactory(data) {
       img.dataset.id = id;
       img.setAttribute("class", "media-img");
       media.appendChild(img);
+      img.setAttribute("alt", title + ", closeup view");
+      img.setAttribute("tabindex", "0");
 
       const h2 = document.createElement("h2");
       h2.textContent = title;
+      h2.setAttribute("tabindex", 0);
       details.appendChild(h2);
     }
 
@@ -28,9 +31,12 @@ function photographerMediaFactory(data) {
       photographerVideo.setAttribute("src", videotape);
       media.appendChild(photographerVideo);
       photographerVideo.dataset.id = id;
+      photographerVideo.setAttribute("aria-label", title + ", closeup view");
+      photographerVideo.setAttribute("tabindex", 0);
 
       const h2 = document.createElement("h2");
       h2.textContent = title;
+      h2.setAttribute("tabindex", 0);
       details.appendChild(h2);
     }
 
@@ -39,6 +45,7 @@ function photographerMediaFactory(data) {
 
     const pLikes = document.createElement("p");
     pLikes.innerHTML = likes;
+    pLikes.setAttribute("tabindex", 0);
 
     const pHeart = document.createElement("i");
     pHeart.setAttribute("class", "fas fa-heart");

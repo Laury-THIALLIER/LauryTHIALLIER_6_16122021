@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css">
     <meta charset="utf-8">
@@ -9,38 +9,40 @@
   </head>
   <body>
     <header>
-      <a href="/"><img src="assets/images/logo.png" class="logo"></a>
+      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye Home page"></a>
     </header>
     <main id="main">
       <div class="photographer_header">
 
       </div>
-      <!-- <div class="sort">
-        <label for="sort">Trier par</label>
-        <select name="sort" id="sort">
-          <option value="Popularité">Popularité</option>
-          <option value="Date">Date</option>
-          <option value="Titre">Titre</option>
-        </select>
-      </div> -->
 
+      <div class="totalLikes-bar" tabindex="0">
+        <div class="likes-bar">
+          <p class="totalLikes"></p>
+          <i class="fas fa-heart"></i>
+        </div>
+        <div class="price-bar">
+          <p class="price"></p>
+        </div>
+      </div>
+      
       <div class="sort-button">
-        <label>Trier par</label>
-        <button id="list" class="list">
+        <label id="sort" tabindex="0">Trier par</label>
+        <button id="list" class="list" role="button" aria-haspopup="listbox" aria-expanded="false">
           <div class="list-button">
             <p id="selected"></p>
             <div id="list-arrow">
               <div class="fas fa-chevron-down"></div>
             </div>
           </div>
-          <ul class="list-ul" id="list-ul">
-            <li class="list-li" id="popularity">
+          <ul class="list-ul" id="list-ul" role="listbox" aria-activedescendant="dropdown-menu" aria-selected="true" aria-labelledby="sort">
+            <li class="list-li" id="popularity" tabindex="0" role="option">
               Popularité
             </li>
-            <li class="list-li" id="date">
+            <li class="list-li" id="date" tabindex="0" role="option">
               Date
             </li>
-            <li class="list-li" id="title">
+            <li class="list-li" id="title" tabindex="0" role="option">
               Titre
             </li>
           </ul>
@@ -52,51 +54,40 @@
       </div>
     </main>
 
-    <div class="lightbox">
-      <div class="slider">
-        <i class="fas fa-chevron-left" id="previous"></i>
-        <div class="lightboxMedia">
-
+    <div class="lightbox" role="dialog" aria-label="image closeup view" aria-modal="true" tabindex="0">
+      <div class="container">
+        <div class="div-title">
+          <div class="lightboxMedia" tabindex="0"></div>
+          <p class="title" tabindex="0"></p>
         </div>
-        <i class="fas fa-chevron-right" id="next"></i>
-        <i class="fas fa-times" id="close"></i>
-      </div>
-      <div class="div-title">
-        <h2 class="title"></h2>
+        <i class="fas fa-chevron-left" id="previous" aria-label="Previous image" tabindex="0"></i>
+        <i class="fas fa-chevron-right" id="next" aria-label="Next image" tabindex="0"></i>
+        <i class="fas fa-times" id="close" aria-label="Close dialog" tabindex="0"></i>
       </div>
     </div>
 
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-labelledby="contact_me" aria-modal="true" aria-hidden="true" tabindex="0">
 			<div class="modal">
 				<header>
-          <h2 id="contact_me"></h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()">
+          <h2 id="contact_me" tabindex="0"></h2>
+          <!-- <img src="assets/icons/close.svg" onclick="closeModal()" alt="Close Contact form" tabindex="0"> -->
         </header>
 				<form>
 					<div>
-						<label for="firstname">Prénom</label>
-						<input class="contact_input" id="firstname" name="firstname" type="text">
-            <label for="lastname">Nom</label>
-						<input class="contact_input" id="lastname" name="lastname" type="text">
-            <label for="email">Email</label>
-						<input class="contact_input" id="email" name="email" type="email">
-            <label for="message">Votre message</label>
-						<textarea class="contact_input" id="message" name="message"></textarea>
+						<label for="firstname" tabindex="0">Prénom</label>
+						<input class="contact_input" id="firstname" name="firstname" type="text" aria-label="First name">
+            <label for="lastname" tabindex="0">Nom</label>
+						<input class="contact_input" id="lastname" name="lastname" type="text" aria-label="Last name">
+            <label for="email" tabindex="0">Email</label>
+						<input class="contact_input" id="email" name="email" type="email" aria-label="Email">
+            <label for="message" tabindex="0">Votre message</label>
+						<textarea class="contact_input" id="message" name="message" aria-label="Your message"></textarea>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="Send">Envoyer</button>
 				</form>
+        <img id="contact_close" src="assets/icons/close.svg" onclick="closeModal()" alt="Close Contact form" tabindex="0">
 			</div>
 		</div>
-
-    <div class="totalLikes-bar">
-      <div class="likes-bar">
-        <p class="totalLikes"></p>
-        <i class="fas fa-heart"></i>
-      </div>
-      <div class="price-bar">
-        <p class="price"></p>
-      </div>
-    </div>
 
     <script src="scripts/factories/photographerProfile.js" defer></script>
     <script src="scripts/factories/photographerMedia.js" defer></script>

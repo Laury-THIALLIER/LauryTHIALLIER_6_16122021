@@ -61,6 +61,11 @@ async function displayPortfolio(photographers) {
     mediaCardDOM.children[0].addEventListener("click", () =>
       clickLightbox(mediaCardDOM.children[0])
     );
+    mediaCardDOM.children[0].addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        clickLightbox(mediaCardDOM.children[0]);
+      }
+    });
     photographersPortfolio.appendChild(mediaCardDOM);
   });
 
@@ -91,6 +96,8 @@ async function displayPortfolio(photographers) {
       lightboxMedia.appendChild(video);
     }
     lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    lightbox.focus();
   };
 
   const Previous = () => {
@@ -182,8 +189,20 @@ async function displayPortfolio(photographers) {
     Previous();
   });
 
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") {
+      Previous();
+    }
+  });
+
   document.getElementById("next").addEventListener("click", () => {
     Next();
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") {
+      Next();
+    }
   });
 
   function closeLightbox() {
@@ -193,6 +212,12 @@ async function displayPortfolio(photographers) {
 
   document.getElementById("close").addEventListener("click", () => {
     closeLightbox();
+  });
+
+  document.getElementById("close").addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      closeLightbox();
+    }
   });
 
   /* Likes */
@@ -249,10 +274,12 @@ async function displayPortfolio(photographers) {
     ) {
       listUl.style.display = "block";
       arrow.classList.add("arrow-move");
+      list.setAttribute("aria-expanded", "true");
     } else {
       listUl.style.display = "none";
       list.focus();
       arrow.classList.remove("arrow-move");
+      list.setAttribute("aria-expanded", "false");
     }
   }
 
@@ -265,23 +292,29 @@ async function displayPortfolio(photographers) {
     if (selected.innerHTML == popularity.innerHTML) {
       popularity.classList.remove("list-li");
       popularity.innerHTML = "";
+      popularity.removeAttribute("tabindex", "0");
     } else {
       popularity.innerHTML = "Popularité";
       popularity.classList.add("list-li");
+      popularity.setAttribute("tabindex", "0");
     }
     if (selected.innerHTML === date.innerHTML) {
       date.classList.remove("list-li");
       date.innerHTML = "";
+      date.removeAttribute("tabindex", "0");
     } else {
       date.innerHTML = "Date";
       date.classList.add("list-li");
+      date.setAttribute("tabindex", "0");
     }
     if (selected.innerHTML === title.innerHTML) {
       title.classList.remove("list-li");
       title.innerHTML = "";
+      title.removeAttribute("tabindex", "0");
     } else {
       title.innerHTML = "Titre";
       title.classList.add("list-li");
+      title.setAttribute("tabindex", "0");
     }
   };
 
@@ -299,6 +332,12 @@ async function displayPortfolio(photographers) {
     sortByLike();
   });
 
+  popularity.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByLike();
+    }
+  });
+
   function sortByDate() {
     selected.innerHTML = "Date";
     selectedChoiceHidden();
@@ -311,6 +350,12 @@ async function displayPortfolio(photographers) {
 
   date.addEventListener("click", () => {
     sortByDate();
+  });
+
+  date.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByDate();
+    }
   });
 
   function sortByTitle() {
@@ -336,6 +381,12 @@ async function displayPortfolio(photographers) {
 
   title.addEventListener("click", () => {
     sortByTitle();
+  });
+
+  date.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+      sortByTitle();
+    }
   });
 
   sortByLike();

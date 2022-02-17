@@ -10,7 +10,7 @@
   padding: 40px;
 }
 
-.photographer_header h2 {
+.photographer_header h1 {
   color: #d3573c;
   font-size: 70px;
   margin-bottom: 0;
@@ -37,36 +37,6 @@
 }
 
 /* Tri */
-
-/* .sort {
-  margin-top: 80px;
-  margin-left: 100px;
-}
-
-.sort label {
-  font-weight: 700;
-  font-size: 16px;
-}
-
-.sort select {
-  background-color: #901c1c;
-  border: 0;
-  border-radius: 5px;
-  color: white;
-  width: 170px;
-  height: 70px;
-  padding: 11px;
-  font-weight: 700;
-  appearance: none;
-  font-size: 16px;
-}
-
-.sort option {
-  font-size: 16px;
-  font-weight: 700;
-  width: 170px;
-  height: 70px;
-} */
 
 .sort-button {
   margin-top: 80px;
@@ -221,53 +191,52 @@
   z-index: 5;
 }
 
-.lightbox .slider {
+.lightbox .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 850px;
-  width: 995px;
   position: relative;
+  column-gap: 30px;
 }
 
-.lightbox .slider .fa-chevron-left {
+.lightbox .fa-chevron-left {
   font-size: 50px;
   color: #901c1c;
   cursor: pointer;
+  order: 1;
 }
 
-.lightbox .slider img {
+.lightbox img {
   object-fit: cover;
+  /* object-position: center -175px; */
   height: 100%;
   width: 100%;
-  margin: 0 40px;
   border-radius: 5px;
 }
 
-.lightbox .slider video {
+.lightbox video {
   object-fit: cover;
   height: 100%;
   width: 100%;
-  margin: 0 40px;
   border-radius: 5px;
 }
 
 .lightboxMedia {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+  width: 950px;
+  height: 800px;
+  margin-top: 62px;
 }
 
-.lightbox .slider .fa-chevron-right {
+.lightbox .fa-chevron-right {
   font-size: 50px;
   color: #901c1c;
   cursor: pointer;
+  order: 3;
 }
 
-.lightbox .slider .fa-times {
+.lightbox .fa-times {
   position: absolute;
-  top: 0;
+  top: 60px;
   right: 0;
   font-size: 50px;
   color: #901c1c;
@@ -275,18 +244,16 @@
 }
 
 .lightbox .div-title {
-  display: flex;
-  justify-content: center;
-  text-align: start;
-  width: 100%;
+  order: 2;
 }
 
-.lightbox .div-title h2 {
+.lightbox .div-title p {
   color: #901c1c;
   margin: 0;
   margin-top: 30px;
   /* margin-left: 530px; */
   width: 855px;
+  font-size: 30px;
 }
 
 /* Contact modal */
@@ -327,6 +294,7 @@
   padding: 35px;
   margin: auto;
   margin-top: 3%;
+  position: relative;
 }
 
 .modal header {
@@ -334,8 +302,11 @@
   width: 100%;
 }
 
-.modal header img {
+.modal img {
   cursor: pointer;
+  position: absolute;
+  right: 50px;
+  top: 50px;
 }
 
 .modal header h2 {

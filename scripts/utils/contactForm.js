@@ -26,7 +26,7 @@ let email;
 let message;
 
 inputs.forEach((input) => {
-  input.addEventListener("focusout", (e) => {
+  input.addEventListener("focusout", () => {
     if (input.name == "firstname")
       firstname = document.getElementById("firstname").value;
     if (input.name == "lastname")

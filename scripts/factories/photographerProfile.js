@@ -4,9 +4,9 @@ function photographerProfileFactory(data) {
   const picture = `assets/photographers/${portrait}`;
 
   function getProfileCardDOM() {
-    infos = document.createElement("div");
+    const infos = document.createElement("div");
     infos.setAttribute("class", "infos");
-    div = document.createElement("div");
+    const div = document.createElement("div");
 
     const h1 = document.createElement("h1");
     h1.textContent = name;
@@ -31,7 +31,7 @@ function photographerProfileFactory(data) {
     img.setAttribute("alt", name);
     img.setAttribute("tabindex", "0");
 
-    totalLikesBar = document.querySelector(".totalLikes-bar");
+    const totalLikesBar = document.querySelector(".totalLikes-bar");
     const pPrice = document.querySelector(".price");
     pPrice.textContent = price + "€ / jour";
     totalLikesBar.appendChild(pPrice);

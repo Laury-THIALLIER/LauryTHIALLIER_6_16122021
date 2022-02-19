@@ -2,11 +2,11 @@ function photographerMediaFactory(data) {
   const { photographerId, id, title, image, video, likes } = data;
 
   function getMediaCardDOM() {
-    media = document.createElement("div");
+    const media = document.createElement("div");
     media.setAttribute("class", "media");
     media.setAttribute("id", id);
 
-    details = document.createElement("div");
+    const details = document.createElement("div");
     details.setAttribute("class", "details");
 
     if (image) {

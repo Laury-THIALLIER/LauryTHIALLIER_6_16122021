@@ -28,7 +28,7 @@ async function getMedias() {
 
 /* Photographer profile */
 
-async function displayData(photographers) {
+async function displayData() {
   const photographersHeader = document.querySelector(".photographer_header");
 
   const queryString = window.location.search;
@@ -43,7 +43,7 @@ async function displayData(photographers) {
 
 /* Photographer portfolio */
 
-async function displayPortfolio(photographers) {
+async function displayPortfolio() {
   const photographersPortfolio = document.querySelector(
     ".photographer_portfolio"
   );

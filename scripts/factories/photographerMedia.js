@@ -1,4 +1,4 @@
-function photographerMediaFactory(data) {
+export default function photographerMediaFactory(data) {
   const { photographerId, id, title, image, video, likes } = data;
 
   function getMediaCardDOM() {
@@ -47,8 +47,9 @@ function photographerMediaFactory(data) {
     pLikes.innerHTML = likes;
     pLikes.setAttribute("tabindex", 0);
 
-    const pHeart = document.createElement("i");
+    const pHeart = document.createElement("div");
     pHeart.setAttribute("class", "fas fa-heart");
+    pHeart.setAttribute("tabindex", 0);
 
     media.appendChild(details);
     details.appendChild(p);

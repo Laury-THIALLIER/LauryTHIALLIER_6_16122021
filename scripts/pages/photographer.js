@@ -1,3 +1,6 @@
+import photographerProfileFactory from "../factories/photographerProfile.js";
+import photographerMediaFactory from "../factories/photographerMedia.js";
+
 // Mettre le code JavaScript lié à la page photographer.html
 let photographerData = [];
 let photographerMedia = [];
@@ -39,6 +42,14 @@ async function displayData() {
   const photographersProfile = photographerProfileFactory(profile);
   const profileCardDOM = photographersProfile.getProfileCardDOM();
   photographersHeader.appendChild(profileCardDOM);
+
+  const contact_button = document.querySelector(".contact_button");
+  const modal = document.getElementById("contact_modal");
+  contact_button.addEventListener("click", () => {
+    modal.style.display = "block";
+    modal.setAttribute("aria-hidden", "false");
+    modal.focus();
+  });
 }
 
 /* Photographer portfolio */
@@ -254,6 +265,14 @@ async function displayPortfolio() {
   hearts.forEach((element) => {
     element.addEventListener("click", () => {
       LikeFunction(element);
+    });
+  });
+
+  hearts.forEach((element) => {
+    element.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        LikeFunction(element);
+      }
     });
   });
 

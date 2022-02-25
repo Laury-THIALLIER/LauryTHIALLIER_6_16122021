@@ -1,4 +1,4 @@
-function photographerProfileFactory(data) {
+export default function photographerProfileFactory(data) {
   const { name, portrait, city, country, tagline, price } = data;
 
   const picture = `assets/photographers/${portrait}`;
@@ -24,7 +24,6 @@ function photographerProfileFactory(data) {
     const button = document.createElement("button");
     button.textContent = "Contactez-moi";
     button.setAttribute("class", "contact_button");
-    button.setAttribute("onclick", "displayModal()");
 
     const img = document.createElement("img");
     img.setAttribute("src", picture);

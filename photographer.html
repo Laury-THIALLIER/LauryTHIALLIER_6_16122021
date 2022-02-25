@@ -19,7 +19,7 @@
       <div class="totalLikes-bar" tabindex="0">
         <div class="likes-bar">
           <p class="totalLikes"></p>
-          <i class="fas fa-heart"></i>
+          <div class="fas fa-heart"></div>
         </div>
         <div class="price-bar">
           <p class="price"></p>
@@ -60,9 +60,9 @@
           <div class="lightboxMedia" tabindex="0"></div>
           <p class="title" tabindex="0"></p>
         </div>
-        <i class="fas fa-chevron-left" id="previous" aria-label="Previous image" tabindex="0"></i>
-        <i class="fas fa-chevron-right" id="next" aria-label="Next image" tabindex="0"></i>
-        <i class="fas fa-times" id="close" aria-label="Close dialog" tabindex="0"></i>
+        <button class="button_previous" aria-label="Previous image" tabindex="0" id="previous"><div class="fas fa-chevron-left"></div></button>
+        <button class="button_next" aria-label="Next image" tabindex="0" id="next"><div class="fas fa-chevron-right"></div></button>
+        <button class="button_close" aria-label="Close dialog" tabindex="0" id="close"><div class="fas fa-times"></div></button>
       </div>
     </div>
 
@@ -88,9 +88,7 @@
 			</div>
 		</div>
 
-    <script src="scripts/factories/photographerProfile.js" defer></script>
-    <script src="scripts/factories/photographerMedia.js" defer></script>
-    <script src="scripts/pages/photographer.js" defer></script>
+    <script type="module" src="scripts/pages/photographer.js" defer></script>
     <script src="scripts/utils/contactForm.js" defer></script>
     <script src="https://kit.fontawesome.com/48c9fff134.js" crossorigin="anonymous"></script>
   </body>

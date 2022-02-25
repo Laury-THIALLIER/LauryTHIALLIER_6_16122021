@@ -199,6 +199,11 @@
   column-gap: 30px;
 }
 
+.lightbox .button_previous {
+  background: none;
+  border: none;
+}
+
 .lightbox .fa-chevron-left {
   font-size: 50px;
   color: #901c1c;
@@ -227,6 +232,13 @@
   margin-top: 62px;
 }
 
+.lightbox .button_next {
+  position: absolute;
+  right: -70px;
+  background: none;
+  border: none;
+}
+
 .lightbox .fa-chevron-right {
   font-size: 50px;
   color: #901c1c;
@@ -234,8 +246,15 @@
   order: 3;
 }
 
-.lightbox .fa-times {
+.lightbox .button_close {
   position: absolute;
+  top: 60px;
+  right: -80px;
+  background: none;
+  border: none;
+}
+
+.lightbox .fa-times {
   top: 60px;
   right: 0;
   font-size: 50px;
